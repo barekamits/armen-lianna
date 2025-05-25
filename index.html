@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wedding Day - Андрей & Анастасия</title>
+  <style>
+    @font-face {
+      font-family: 'Breesh Light';
+      src: url('Breesh-Light.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'ArmAllegroU';
+      src: url('ArmAllegroU.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Vrdznagir'; /* Սա այն անունն է, որով կկանչեք ֆոնտը CSS-ում */
+      src: url('Vrdznagir.otf') format('opentype'); /* Սա ֆոնտի ֆայլի ճանապարհն է */
+      font-weight: normal; /* Կարգավորեք ըստ ֆոնտի կշռի (normal, bold, 100-900) */
+      font-style: normal;  /* Կարգավորեք ըստ ֆոնտի ոճի (normal, italic) */
+      /* Եթե ունեք WOFF/WOFF2 ֆայլեր, կարող եք ավելացնել հետևյալը՝ ավելի լավ համատեղելիության համար */
+      /* src: url('MyNewFont.woff2') format('woff2'),
+            url('MyNewFont.woff') format('woff'),
+            url('MyNewFont.ttf') format('truetype'); */
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Breesh Light', sans-serif; /* Body-ի հիմնական ֆոնտը */
+      background: linear-gradient(135deg, #f5f3f0 0%, #e8e5e0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .cover-container {
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .cover-container .title {
+      font-family: 'Breesh Light', sans-serif;
+      font-size: 70px;
+      font-weight: 300;
+      font-style: italic;
+      color: #8B2635;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    .date {
+      font-family: 'Breesh Light', sans-serif;
+      font-size: 1.8rem;
+      color: #8B2635;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+    }
+
+    .photo-frame {
+      width: 280px;
+      height: 380px;
+      background: linear-gradient(45deg, #333, #666);
+      border-radius: 15px;
+      margin: 0 auto 30px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+      animation: scaleIn 1.2s ease-out 0.3s both;
+    }
+
+    .photo-placeholder {
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    .names {
+      font-family: 'Breesh Light', sans-serif;
+      font-size: 2.8rem;
+      color: #8B2635;
+      font-weight: 300;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .ampersand {
+      font-size: 2rem;
+      margin: 10px 0;
+      color: #A63446;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .title {
+        font-size: 2.8rem;
+      }
+
+      .date {
+        font-size: 1.5rem;
+      }
+
+      .photo-frame {
+        width: 240px;
+        height: 320px;
+      }
+
+      .names {
+        font-size: 2rem;
+      }
+      .program {
+        max-width: 100%;
+        width: 100%;
+        border-radius: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .schedule-item {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+
+    .greeting {
+      font-family: 'ArmAllegroU',sans-serif;
+      font-size: 20px;
+      color: black;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .invitation {
+      max-width: 400px;
+      background: #f9f9f9;
+      border-radius: 15px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 1px solid #e0e0e0;
+    }
+
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: #9B4444;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+    }
+
+    .heart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px auto;
+      margin-top: 40px
+    }
+
+    .heart img {
+      width: 300px;
+      height: auto;
+    }
+
+    /* Ավելացված է heart2 կլասի համար ոճ */
+    .heart2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px auto;
+        margin-top: 40px;
+    }
+    .heart2 img {
+        width: 300px; /* Կարգավորեք չափերը ըստ ցանկության */
+        height: auto;
+    }
+
+
+    .message {
+      font-family: 'ArmAllegroU',sans-serif;
+      font-size: 20px;
+      color: black;
+      margin: 30px 0;
+      line-height: 1.7;
+    }
+
+    .program {
+      background: linear-gradient(135deg, #9B4444, #7A3333);
+      color: white;
+      padding: 30px 25px;
+      border-radius: 15px;
+      margin-top: 40px;
+    }
+
+    .program-title {
+      font-family: 'Breesh Light',sans-serif;
+      font-size: 50px;
+      font-weight: 600;
+      margin-bottom: 35px;
+      margin-top: -10px;
+      letter-spacing: 1px;
+      text-align: center; /* Ավելացրեք սա՝ հաստատելու համար կենտրոնացումը */
+    }
+
+    .schedule-item {
+      font-size: 25px;
+      font-family: 'Vrdznagir', sans-serif;
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .schedule-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .time {
+      font-size: 20px;
+      font-weight: 600;
+      margin-right: 20px;
+      min-width: 60px;
+      text-align: left;
+    }
+
+    .event {
+      flex: 1;
+      text-align: left;
+    }
+
+    .event-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .event-description {
+      font-size: 13px;
+      opacity: 0.9;
+      line-height: 1.4;
+    }
+
+    .decorative-element {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #9B4444, transparent);
+      margin: 25px 0;
+    }
+    .dresscode {
+      text-align: center;
+      margin-top: 60px;
+      font-family: 'Breesh Light', sans-serif;
+    }
+
+    .dresscode-title {
+      
+      font-size: 50px;
+      color: #9B4444;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+
+    .dresscode-colors {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+      gap: 30px;
+    }
+    .dresscode-note {
+      margin-top: 20px;
+      line-height: 1.4;
+      color: #555;
+    }
+
+    .circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: scale(0.5);
+      animation: fadeInCircle 0.8s ease forwards;
+    }
+
+    .circle:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    .circle:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .circle:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .red {
+      background-color: #8B2635;
+    }
+
+    .black {
+      background-color: #333333;
+    }
+
+    .brown {
+      background-color: #7A4E2D;
+    }
+
+    @keyframes fadeInCircle {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    .card {
+      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card .title {
+      font-size: 2.2em;
+      color: #8B4513;
+      margin-bottom: 30px;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    .location-info {
+      color: #555;
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .address-line {
+      margin-bottom: 8px;
+    }
+
+    .image-container {
+      margin: 30px 0;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .location-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .location-image:hover {
+      transform: scale(1.05);
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .view-button {
+      background: linear-gradient(135deg, #8B0000, #A52A2A);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 25px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+      font-family: inherit;
+    }
+
+    .view-button:hover {
+      background: linear-gradient(135deg, #A52A2A, #DC143C);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(139, 0, 0, 0.4);
+    }
+
+    .view-button:active {
+      transform: translateY(0);
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 30px 20px;
+        margin: 10px;
+      }
+
+      .card .title {
+        font-size: 1.8em;
+      }
+
+      .location-info {
+        font-size: 1em;
+      }
+
+      .location-image {
+        height: 200px;
+      }
+    }
+    .details-card {
+      background: linear-gradient(145deg, #faf9f7 0%, #ede9e5 50%, #f5f3f1 100%);
+      border-radius: 25px;
+      padding: 50px 40px;
+      max-width: 650px;
+      width: 100%;
+      box-shadow:
+        0 20px 40px rgba(139, 69, 19, 0.1),
+        0 10px 20px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .details-card .title {
+      font-size: 3em;
+      color: #8B4513;
+      margin-bottom: 40px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .paragraph {
+      color: #4a4a4a;
+      font-size: 1.2em;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      text-align: center; /* Փոխել justify-ից center */
+      /* text-justify: inter-word; */ /* Սա կարող եք հեռացնել, եթե text-align-ը center է */
+      padding: 0 10px;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, rgba(205, 133, 63, 0.2) 0%, rgba(222, 184, 135, 0.3) 100%);
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .details-card {
+        padding: 40px 25px;
+        margin: 15px;
+      }
+
+      .details-card .title {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+      }
+
+      .paragraph {
+        font-size: 1.1em;
+        line-height: 1.7;
+        text-align: left;
+        padding: 0 5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .details-card {
+        padding: 30px 20px;
+      }
+
+      .details-card .title {
+        font-size: 1.8em;
+        letter-spacing: 2px;
+      }
+
+      .paragraph {
+        font-size: 1em;
+        margin-bottom: 25px;
+      }
+    }
+
+    .telegram-section {
+        text-align: center;
+        padding: 40px 20px;
+        margin-top: 60px;
+    }
+
+    .telegram-section .main-title {
+      font-size: 2.8em;
+      color: #8B4513;
+      margin-bottom: 50px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: #5a5a5a;
+      font-size: 1.3em;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .description {
+      color: #6a6a6a;
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .telegram-section {
+          padding: 20px 15px;
+      }
+
+      .telegram-section .main-title {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+      }
+
+      .subtitle {
+        font-size: 1.2em;
+      }
+
+      .description {
+        font-size: 1.1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .telegram-section .main-title {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+      }
+
+      .subtitle {
+        font-size: 1.1em;
+      }
+
+      .description {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cover-container">
+    <h1 class="title">Wedding Day</h1>
+    <div class="date">25.07.2025</div>
+
+    <div class="photo-frame">
+      <div class="photo-placeholder">
+        <img src="https://assets.onecompiler.app/43gpeysj6/43jqyfecp/couple2.png" alt="Couple Photo" />
+      </div>
+    </div>
+
+    <div class="names">
+      Armen<br />
+      <div class="ampersand">&</div>
+      Lianna
+    </div>
+
+    <p class="greeting">
+      Սիրելի՛ բարեկամներ և հարազատներ,<br />
+      Ուրախությամբ հրավիրում ենք Ձեզ մեր կյանքի կարևորագույն<br />
+      իրադարձությանը՝ մեր հարսանիքին, որը<br />
+      տեղի կունենա 2025 թվականի հուլիսի 25-ին։
+    </p>
+
+  </div>
+
+  <div class="heart">
+    <img src="https://assets.onecompiler.app/43gpeysj6/43jqyfecp/%D5%BD%D5%AB%D6%80%D5%BF_png-removebg-preview.png" alt="Heart" />
+  </div>
+
+  <div class="decorative-element"></div>
+
+  <p class="message">
+    Այս օրն անմոռանալի կդառնա բոլորիս համար,<br />
+    և մենք անհամբեր սպասում ենք հնարավորությանը՝<br />
+    այն Ձեզ հետ կիսելու։
+  </p>
+
+  <div class="program">
+    <h2 class="program-title">Timing</h2>
+
+    <div class="schedule-item">
+      <div class="time">13:00</div>
+      <div class="event">
+        <div class="event-title">Հավաքվում ենք </div>
+        <div class="event-description">
+          եկեք՝ ձեզ հետ բերելով լավ <br />
+          տրամադրություն և ժպիտներ
+        </div>
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="time">14:00</div>
+      <div class="event">
+        <div class="event-title">Հարսանեկան արարողություն</div>
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="time">14:30</div>
+      <div class="event">
+        <div class="event-title">Նկարահանում </div>
+        <div class="event-description">
+            Ձեր ժպիտներն այստեղ
+        </div>
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="time">15:00</div>
+      <div class="event">
+        <div class="event-title">Հարսանյան հանդեսի սկիզբ</div>
+      </div>
+    </div>
+
+    <div class="schedule-item">
+      <div class="time">23:00</div>
+      <div class="event">
+        <div class="event-title">Երեկոյի ավարտ</div> </div>
+    </div>
+
+  </div>
+  <div class="heart2">
+    <img src="https://assets.onecompiler.app/43gpeysj6/43jqyfecp/%D5%BD%D5%AB%D6%80%D5%BF_png-removebg-preview.png" alt="Heart" />
+  </div>
+  <div class="decorative-element"></div>
+
+  <div class="dresscode">
+    <h2 class="dresscode-title">Dress Code</h2>
+    <div class="dresscode-colors">
+      <div class="circle red"></div>
+      <div class="circle black"></div>
+      <div class="circle brown"></div>
+    </div>
+    <p class="dresscode-note">Մենք ուրախ կլինենք, եթե Ձեր կերպարում լինեն<br>այս գույները</p>
+  </div>
+    <div class="card">
+        <h1 class="title">Location</h1>
+
+        <div class="location-info">
+            <div class="address-line">Հայաստան, Արարատի մարզ,</div>
+            <div class="address-line">Դիտակ գյուղ
+            Գևորգյան փող</div>
+            <div class="address-line">Հրաշք այգի ռեստորանային համալիր</div>
+        </div>
+
+        <div class="image-container">
+            <img src="https://assets.onecompiler.app/43gpeysj6/43jqyfecp/placejpg.jpg" class="location-image" alt="Location Map">
+            <div class="image-overlay"></div>
+        </div>
+
+        <button class="view-button" onclick="viewOnMap()">Посмотреть на карте</button>
+    </div>
+
+    <script>
+        function viewOnMap() {
+            const button = document.querySelector('.view-button');
+            button.style.transform = 'scale(0.95)';
+
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                // Ուշադրություն: Այստեղ դեռ Նովոսիբիրսկի հասցեն է նշված, կարող եք փոխել:
+                alert('Открытие карты...\nг. Новосибирск, поселок Садовый, Береговая улица, 14/7');
+            }, 150);
+        }
+
+        window.addEventListener('load', () => {
+            const card = document.querySelector('.card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+    <div class="details-card">
+        <h1 class="title">Details</h1>
+
+        <div class="content">
+          <p class="paragraph">
+            Սիրելի՛ բարեկամներ,
+
+            Ձեր ներկայությունը մեր կյանքի այս կարևոր ու հիշարժան օրը մեզ համար արդեն իսկ ամենամեծ նվերն է։  <span class="highlight">Մենք անկեղծորեն շնորհակալ ենք, </span> որ ցանկանում եք կիսել մեզ հետ այս տոնական պահերը։
+          </p>
+
+          <p class="paragraph">
+            Միակ խնդրանքն ու ցանկությունը, որ ունենք՝
+            Թուլացե՛ք, ժպտացե՛ք, պարե՛ք և լիարժեք վայելե՛ք օրը։ <span class="highlight">Մենք արդեն հոգացել ենք բոլոր մանրուքների մասին, իսկ ձեր միակ «պարտականությունն» է՝ ստեղծել հիշողություններ՝ լի ուրախությամբ ու ջերմությամբ։
+          </p>
+
+          <p class="paragraph">
+          <span class="highlight">Սիրով սպասում ենք ձեզ</span>
+          </p>
+        </div>
+    </div>
+
+
+    <div class="telegram-section">
+      <h1 class="main-title">ՈՒՐԱԽ ԿԼԻՆԵՆՔ<br>ՁԵԶ<br>ՏԵՍՆԵԼ</h1>
+      <p class="subtitle">Միացեք մեր ընդհանուր Telegram ալիքին:</p>
+      <p class="description">Այնտեղ մենք կկիսվենք տպավորություններով,<br>զգացմունքներով, լուսանկարներով և տեսանյութերով</p>
+    </div>
+</body>
+</html>
